@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 plt.figure(figsize=(6,6))
-xvalues = np.arange(0, 12, 0.1)
+xvalues = np.arange(0, 12, 0.5)
 plt.subplot(2, 2, 1)
 yvalues = np.sin(xvalues)
 plt.plot(xvalues, yvalues, color='blue')
