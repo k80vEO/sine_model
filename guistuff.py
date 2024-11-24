@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
+from plot_sine import *
 
 # Set up main window
 _root = Tk()
@@ -33,7 +34,7 @@ _analyze_btn.grid(row=0,column=2,pady=10,padx=155, sticky='e')
 # Initial plot
 f = Figure(figsize=(6,4), dpi=100)
 plot1 = f.add_subplot(111)
-plot1.plot()
+plot1.plot(xvalues, yvalues, color='blue')
 plot1.set_title('Default Graph')
 canvas = FigureCanvasTkAgg(f, _root)
 canvas.draw()
