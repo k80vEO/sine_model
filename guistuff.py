@@ -1,10 +1,14 @@
 # Base UI by Jessica Barker
+#View part of MVC
 from tkinter import *
 import tkinter as tk
 from tkinter import ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 from plot_sine import *
+from controller import *
+from tkinter import filedialog
+
 
 # Set up main window
 _root = Tk()
@@ -16,13 +20,16 @@ _root.config(pady=10)
 s = ttk.Style(_root)
 s.configure('TButton',font=('Arial',12))
 _file_btn = ttk.Button(
-    _root, text="Pick File",style="TButton",padding="10 10 10 10")
+    _root, text="Pick File",style="TButton", command = get_file, padding="10 10 10 10")
 _file_btn.grid(row=0,column=0,padx=25,pady=10,
                 sticky='w')
 
+#filepath
+#file_name = get_file()
+
 # File label
 _file_frame = ttk.Label(
-    _root, text="filename.wav",
+    _root, text="{file_name}",
     font=10)
 _file_frame.grid(row=0, column=1, sticky='w')
 
