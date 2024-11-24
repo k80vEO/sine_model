@@ -6,8 +6,22 @@ from tkinter import ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 from plot_sine import *
-from controller import *
+#from controller import *
 from tkinter import filedialog
+import os
+
+
+#view function definitions
+#importing a file
+def get_file():
+    file_path = filedialog.askopenfilename()
+    #title="", filetypes=[(.wav), ()]
+    global file_name
+    file_name = os.path.basename(file_path)
+    print(file_name)
+    if file_path:
+        _file_frame.config(text=f"File: {file_name}")
+
 
 
 # Set up main window
@@ -15,6 +29,9 @@ _root = Tk()
 _root.title("Interactive Data Acoustic Modeling")
 _root.geometry("650x700")
 _root.config(pady=10)
+
+#
+
 
 # Choose file button
 s = ttk.Style(_root)
@@ -24,12 +41,10 @@ _file_btn = ttk.Button(
 _file_btn.grid(row=0,column=0,padx=25,pady=10,
                 sticky='w')
 
-#filepath
-#file_name = get_file()
 
 # File label
 _file_frame = ttk.Label(
-    _root, text="{file_name}",
+    _root, text="File name: ",
     font=10)
 _file_frame.grid(row=0, column=1, sticky='w')
 
@@ -92,3 +107,5 @@ combPlots_btn = ttk.Button(
 combPlots_btn.grid(row=3,column=2,pady=10)
 
 _root.mainloop()
+
+
